@@ -97,6 +97,7 @@ const SearchBooks = () => {
             <div className="row">
               <div className="col">
                 <input
+                  data-input-book
                   type="text"
                   className="form-control ml-3"
                   placeholder="Mots-clés, phrases..."
@@ -109,7 +110,10 @@ const SearchBooks = () => {
               </div>
 
               <div className="col">
-                <button className="btn btn-outline-secondary ml-3">
+                <button
+                  data-search-book
+                  className="btn btn-outline-secondary ml-3"
+                >
                   Rechercher
                 </button>
               </div>
