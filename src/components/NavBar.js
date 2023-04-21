@@ -1,19 +1,23 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <header className='d-flex justify-content-between align-items-center p-4'>
+    <header className="d-flex justify-content-between align-items-center p-4">
       <h1>
-        <a href='/'>NinArt</a>
+        <a href="/">NinArt</a>
       </h1>
 
-      <nav className='btn-group'>
-        <Link to='/' className='btn btn-light'>Acceuil</Link>
-        <Link to='/search' className='btn btn-light'>Rechercher un livre</Link>
+      <nav className="btn-group">
+        <Link to="/" className="btn btn-light">
+          Acceuil
+        </Link>
+        <Link to="/search" className="btn btn-light">
+          Rechercher un livre
+        </Link>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

@@ -1,15 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
-import addBooksReducer from './reducers/reducerBooks';
-import reducerFetchedBooks from './reducers/reducerFetch';
+import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
+import addBooksReducer from "./reducers/reducerBooks";
+import reducerFetchedBooks from "./reducers/reducerFetch";
 
 const reducer = combineReducers({
   library: addBooksReducer,
-  search: reducerFetchedBooks
+  search: reducerFetchedBooks,
 });
 
 const store = configureStore({
-  reducer
+  reducer,
 });
 
 export default store;
