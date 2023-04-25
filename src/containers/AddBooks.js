@@ -46,11 +46,8 @@ const AddBooks = () => {
     libraryData.length > 0 ? (
       libraryData.map((data) => {
         return (
-          <FlipMove>
-            <li
-              key={data.id}
-              className="list-group-item list-group-item-light d-flex justify-content-between align-items-center"
-            >
+          <FlipMove key={data.id}>
+            <li className="list-group-item list-group-item-light d-flex justify-content-between align-items-center">
               <span className="w-50">{data.title}</span>
               <span className="w-50">{data.author}</span>
               <span
