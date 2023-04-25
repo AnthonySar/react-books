@@ -42,7 +42,7 @@ const SearchBooks = () => {
   ) : (
     searchResult.fetchedBooks.map((data) => {
       return (
-        <Accordion.Item eventKey={data.id}>
+        <Accordion.Item eventKey={data.id} key={data.id}>
           <Accordion.Header>{data.volumeInfo.title}</Accordion.Header>
           <Accordion.Body>
             {data.volumeInfo.hasOwnProperty("imageLinks") ? (
