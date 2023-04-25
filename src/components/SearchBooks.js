@@ -33,56 +33,56 @@ const SearchBooks = () => {
     });
   };
 
-  // const displayFetchBooks = searchResult.isLoading ? (
-  //   <div className="d-flex justify-content-center">
-  //     <div className="spinner-border text-info" role="status"></div>
-  //   </div>
-  // ) : searchResult.error !== "" ? (
-  //   <p>{searchResult.error}</p>
-  // ) : (
-  //   searchResult.fetchedBooks.map((data) => {
-  //     return (
-  //       <Accordion.Item eventKey={data.id} key={data.id}>
-  //         <Accordion.Header>{data.volumeInfo.title}</Accordion.Header>
-  //         <Accordion.Body>
-  //           {data.volumeInfo.hasOwnProperty("imageLinks") ? (
-  //             <img
-  //               src={data.volumeInfo.imageLinks.thumbnail}
-  //               alt={data.volumeInfo.title}
-  //             />
-  //           ) : (
-  //             ""
-  //           )}
-  //           <hr />
-  //           <h3>{data.volumeInfo.title}</h3>
-  //           <h4>{data.volumeInfo.authors}</h4>
-  //           <hr />
-  //           {data.volumeInfo.description ? (
-  //             <p>{data.volumeInfo.description}</p>
-  //           ) : (
-  //             ""
-  //           )}
-  //           <a
-  //             className="btn btn-outline-secondary m-1"
-  //             target="_blank"
-  //             rel="noopener noreferrer"
-  //             href={data.volumeInfo.previewLink}
-  //           >
-  //             Plus d'infos
-  //           </a>
-  //           <button
-  //             className="btn btn-outline-secondary m-1"
-  //             onClick={() => {
-  //               handleSave(data.volumeInfo.title, data.volumeInfo.authors);
-  //             }}
-  //           >
-  //             Ajouter à la collection
-  //           </button>
-  //         </Accordion.Body>
-  //       </Accordion.Item>
-  //     );
-  //   })
-  // );
+  const displayFetchBooks = searchResult.isLoading ? (
+    <div className="d-flex justify-content-center">
+      <div className="spinner-border text-info" role="status"></div>
+    </div>
+  ) : searchResult.error !== "" ? (
+    <p>{searchResult.error}</p>
+  ) : (
+    searchResult.fetchedBooks.map((data) => {
+      return (
+        <Accordion.Item eventKey={data.id} key={data.id}>
+          <Accordion.Header>{data.volumeInfo.title}</Accordion.Header>
+          <Accordion.Body>
+            {data.volumeInfo.hasOwnProperty("imageLinks") ? (
+              <img
+                src={data.volumeInfo.imageLinks.thumbnail}
+                alt={data.volumeInfo.title}
+              />
+            ) : (
+              ""
+            )}
+            <hr />
+            <h3>{data.volumeInfo.title}</h3>
+            <h4>{data.volumeInfo.authors}</h4>
+            <hr />
+            {data.volumeInfo.description ? (
+              <p>{data.volumeInfo.description}</p>
+            ) : (
+              ""
+            )}
+            <a
+              className="btn btn-outline-secondary m-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={data.volumeInfo.previewLink}
+            >
+              Plus d'infos
+            </a>
+            <button
+              className="btn btn-outline-secondary m-1"
+              onClick={() => {
+                handleSave(data.volumeInfo.title, data.volumeInfo.authors);
+              }}
+            >
+              Ajouter à la collection
+            </button>
+          </Accordion.Body>
+        </Accordion.Item>
+      );
+    })
+  );
 
   return (
     <main role="main">
@@ -123,61 +123,7 @@ const SearchBooks = () => {
       </div>
 
       <div className="container mt-4" style={{ minHeight: "200px" }}>
-        <Accordion>
-          {searchResult.isLoading ? (
-            <div className="d-flex justify-content-center">
-              <div className="spinner-border text-info" role="status"></div>
-            </div>
-          ) : searchResult.error !== "" ? (
-            <p>{searchResult.error}</p>
-          ) : (
-            searchResult.fetchedBooks.map((data) => {
-              return (
-                <Accordion.Item eventKey={data.id} key={data.id}>
-                  <Accordion.Header>{data.volumeInfo.title}</Accordion.Header>
-                  <Accordion.Body>
-                    {data.volumeInfo.hasOwnProperty("imageLinks") ? (
-                      <img
-                        src={data.volumeInfo.imageLinks.thumbnail}
-                        alt={data.volumeInfo.title}
-                      />
-                    ) : (
-                      ""
-                    )}
-                    <hr />
-                    <h3>{data.volumeInfo.title}</h3>
-                    <h4>{data.volumeInfo.authors}</h4>
-                    <hr />
-                    {data.volumeInfo.description ? (
-                      <p>{data.volumeInfo.description}</p>
-                    ) : (
-                      ""
-                    )}
-                    <a
-                      className="btn btn-outline-secondary m-1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={data.volumeInfo.previewLink}
-                    >
-                      Plus d'infos
-                    </a>
-                    <button
-                      className="btn btn-outline-secondary m-1"
-                      onClick={() => {
-                        handleSave(
-                          data.volumeInfo.title,
-                          data.volumeInfo.authors
-                        );
-                      }}
-                    >
-                      Ajouter à la collection
-                    </button>
-                  </Accordion.Body>
-                </Accordion.Item>
-              );
-            })
-          )}
-        </Accordion>
+        <Accordion>{displayFetchBooks}</Accordion>
       </div>
     </main>
   );
